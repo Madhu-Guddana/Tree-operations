@@ -4,7 +4,7 @@ class Node(object):
         self.left = self.right = None
         self.data = data
 
-def top_view(root):
+def top_bottom_view(root):
     if not root: return []
 
     dict = {}
@@ -18,6 +18,7 @@ def top_view(root):
 
         if item.left:
             Q.insert(0,(item.left, hlength -1))
+            # For Top view, following codition is required, for bottom view, it need to be commented.
             #if hlength-1 not in dict:
             dict[hlength -1] = item.left
         if item.right:
@@ -44,6 +45,7 @@ def print_level_order(root):
 def print_spiral_level_order(root):
     if not root:
         return
+    # Following are stacks not Queues.
     Q1 = []
     Q2 = []
     Q1.append(root)
